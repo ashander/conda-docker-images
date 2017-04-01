@@ -1,5 +1,7 @@
 # docker-miniconda
 
+Some dev tools added to miniconda3
+
 Docker container with a bootstrapped installation of [Miniconda](http://conda.pydata.org/miniconda.html) (based on Python 3.5) that is ready to use.
 
 The Miniconda distribution is installed into the `/opt/conda` folder and ensures that the default user has the `conda` command in their path.
@@ -11,11 +13,11 @@ Usage
 
 You can download and run this image using the following commands:
 
-    docker pull continuumio/miniconda3
-    docker run -i -t continuumio/miniconda3 /bin/bash
+    docker pull continuumio/miniconda3gcc
+    docker run -i -t continuumio/miniconda3gcc /bin/bash
 
 Alternatively, you can start a Jupyter Notebook server and interact with Miniconda via your browser:
 
-    docker run -i -t -p 8888:8888 continuumio/miniconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
+    docker run -i -t -p 8888:8888 continuumio/miniconda3gcc /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
 
 You can then view the Jupyter Notebook by opening `http://localhost:8888` in your browser, or `http://<DOCKER-MACHINE-IP>:8888` if you are using a Docker Machine VM.
